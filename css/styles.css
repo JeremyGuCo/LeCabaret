@@ -66,3 +66,69 @@ footer p {
   font-size: 1em;
   color: #f5f5f5;
 }
+
+body {
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/images/bg_ad.webp');
+  background-repeat: repeat;
+  /* Répète l'image sur toute la page */
+  background-size: 200px 200px;;
+  /* Garde la taille originale de l'image */
+  background-position: top left;
+  /* Commence la répétition en haut à gauche */
+}
+
+.curtain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  z-index: 9999;
+}
+
+.curtain {
+  width: 50%;
+  height: 100%;
+  background-color: #800000;
+  transition: transform 2s ease-in-out;
+}
+
+.curtain.left {
+  transform-origin: left;
+  background-image: url('/images/Classic_Red_Theater_Curtain_Left.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.curtain.right {
+  transform-origin: right;
+  background-image: url('/images/Classic_Red_Theater_Curtain_Right.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.open .curtain.left {
+  transform: translateX(-100%);
+}
+
+.open .curtain.right {
+  transform: translateX(100%);
+}
+
+.container {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.container.visible {
+  opacity: 1;
+}

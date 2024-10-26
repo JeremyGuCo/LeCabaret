@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Le Cabaret des Chanteuses Immortelles</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+    />
     <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
-    <div class="container">
-        <header>
-            <img src="images/header.jpeg" alt="Chanteuses Immortelles" class="header-image" />
-            <h1>Bienvenue au Cabaret des Chanteuses Immortelles</h1>
-            <p>Participez au jeu et découvrez votre destin. Le mystère de votre maison sera révélé plus tard...</p>
-        </header>
-
-        <!-- Intégration du Google Form -->
-        <section class="form-section">
-            <h2>Participez au questionnaire</h2>
-            <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSdT30QgpeSTScSFnNOT1URnc5RJ-GrRrkH-KnT5e95i3oAlsw/viewform?embedded=true"
-                width="640"
-                height="1638"
-                frameborder="0"
-                marginheight="0"
-                marginwidth="0"
-            >Chargement…</iframe>
-        </section>
-
-        <!-- Pied de page -->
-        <footer>
-            <p>&copy; 2024 Le Cabaret des Chanteuses Immortelles. Tous droits réservés.</p>
-        </footer>
+  </head>
+  <body>
+    <div class="curtain-container">
+      <div class="curtain left"></div>
+      <div class="curtain right"></div>
     </div>
+    <div class="background-container"></div>
+    <div class="container">
+      <header>
+        <img
+          src="images/header.jpeg"
+          alt="Chanteuses Immortelles"
+          class="header-image"
+        />
+        <h1>Bienvenue au Cabaret des Chanteuses Immortelles</h1>
+        <p>
+          Ici, on joue, on chante, et on ne sait jamais ce qui peut arriver...
+          Défendez l'honneur des divas immortelles et laissez le mystère planer.
+          Votre House ? Ah ça, vous le saurez bien assez tôt...
+        </p>
+      </header>
 
+      <!-- Intégration du Google Form -->
+      <section class="form-section">
+        <h2>Participez au questionnaire</h2>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdT30QgpeSTScSFnNOT1URnc5RJ-GrRrkH-KnT5e95i3oAlsw/viewform?embedded=true"
+          width="640"
+          height="1638"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          >Chargement…</iframe
+        >
+      </section>
+    </div>
     <script src="js/scripts.js"></script>
-</body>
+  </body>
 </html>
