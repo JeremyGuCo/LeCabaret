@@ -160,18 +160,22 @@ body {
   font-family: 'Georgia', serif;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .cabaret-display {
   text-align: center;
-  margin: 0; /* Supprime la marge */
-  height: 100vh; /* Prend toute la hauteur de l'écran */
+  margin: 0;
+  /* Supprime la marge */
+  height: 100vh;
+  /* Prend toute la hauteur de l'écran */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  filter: grayscale(30%) contrast(60%) brightness(80%); /* Effet de ruine */
+  filter: grayscale(30%) contrast(60%) brightness(80%);
+  /* Effet de ruine */
 }
 
 .cabaret-image {
@@ -189,13 +193,181 @@ body {
   font-size: 2em;
   color: #d4af37;
   text-decoration: underline;
-  background-color: rgba(0, 0, 0, 0.8); /* Ajoute un fond semi-transparent pour le texte */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Ajoute un fond semi-transparent pour le texte */
   padding: 10px;
   border-radius: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-20deg); /* Positionne et fait pivoter le texte */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Effet de texte dégradé */
-  z-index: 1; /* Place le texte au-dessus de l'image */
+  transform: translate(-50%, -50%) rotate(-20deg);
+  /* Positionne et fait pivoter le texte */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  /* Effet de texte dégradé */
+  z-index: 1;
+  /* Place le texte au-dessus de l'image */
+}
+
+.rain {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.rain.back-row {
+  display: none;
+  z-index: 1;
+  bottom: 60px;
+  opacity: 0.5;
+}
+
+body.back-row-toggle .rain.back-row {
+  display: block;
+}
+
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 15px;
+  height: 120px;
+  pointer-events: none;
+  animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0vh);
+  }
+
+  75% {
+    transform: translateY(90vh);
+  }
+
+  100% {
+    transform: translateY(90vh);
+  }
+}
+
+.stem {
+  width: 1px;
+  height: 60%;
+  margin-left: 7px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+  animation: stem 0.5s linear infinite;
+}
+
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.splat {
+  width: 15px;
+  height: 10px;
+  border-top: 2px dotted rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(0);
+  animation: splat 0.5s linear infinite;
+  display: none;
+}
+
+body.splat-toggle .splat {
+  display: block;
+}
+
+@keyframes splat {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  90% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.toggles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.toggle {
+  position: absolute;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  line-height: 51px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.toggle:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.toggle.active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.splat-toggle {
+  top: 20px;
+}
+
+.back-row-toggle {
+  top: 90px;
+  line-height: 12px;
+  padding-top: 14px;
+}
+
+.single-toggle {
+  top: 160px;
+}
+
+body.single-toggle .drop {
+  display: none;
+}
+
+body.single-toggle .drop:nth-child(10) {
+  display: block;
 }
