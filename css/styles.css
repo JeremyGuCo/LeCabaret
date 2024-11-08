@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: #2c2c2c;
   color: #f5f5f5;
   font-family: 'Georgia', serif;
@@ -13,6 +13,12 @@
   background-color: #1a1a1a;
   border: 2px solid #d4af37;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.container.visible {
+  opacity: 1;
 }
 
 header {
@@ -28,31 +34,6 @@ header h1 {
 
 header p {
   font-size: 1.2em;
-  color: #f5f5f5;
-}
-
-img {
-  width: 100%;
-  height: auto;
-  border: 2px solid #d4af37;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.form-section {
-  margin: 20px 0;
-}
-
-.form-section h2 {
-  font-family: 'Brush Script MT', cursive;
-  font-size: 2em;
-  color: #d4af37;
-  text-align: center;
-}
-
-iframe {
-  width: 100%;
-  border: 2px solid #d4af37;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 footer {
@@ -64,34 +45,17 @@ footer {
 
 footer p {
   font-size: 1em;
-  color: #f5f5f5;
-}
-
-body {
-  background-color: #2c2c2c;
-  color: #f5f5f5;
-  font-family: 'Georgia', serif;
-  margin: 0;
-  padding: 0;
-  background-image: url('/images/bg_ad.webp');
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  ;
-  background-position: top left;
 }
 
 #open-curtains {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 15px 30px;
+  top: 55vh;
+  left: 55vw;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
   background-color: #d4af37;
   color: #2c2c2c;
-  border: 2px solid #d4af37;
-  border-radius: 10px;
-  font-size: 1.5em;
-  font-family: 'Great Vibes', cursive;
   cursor: pointer;
   z-index: 10000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -119,22 +83,20 @@ body {
 .curtain {
   width: 50%;
   height: 100%;
-  background-color: #800000;
+  background-size: cover;
   transition: transform 2s ease-in-out;
 }
 
 .curtain.left {
   transform-origin: left;
   background-image: url('/images/Classic_Red_Theater_Curtain_Left.jpg');
-  background-size: cover;
-  background-position: center;
+  background-position: right;
 }
 
 .curtain.right {
   transform-origin: right;
   background-image: url('/images/Classic_Red_Theater_Curtain_Right.jpg');
-  background-size: cover;
-  background-position: center;
+  background-position: left;
 }
 
 .open .curtain.left {
@@ -145,229 +107,105 @@ body {
   transform: translateX(100%);
 }
 
-.container {
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-}
-
-.container.visible {
-  opacity: 1;
-} */
-
-body {
-  background-color: #2c2c2c;
-  color: #f5f5f5;
-  font-family: 'Georgia', serif;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.cabaret-display {
-  text-align: center;
-  margin: 0;
-  /* Supprime la marge */
+.loge {
+  width: 100%;
   height: 100vh;
-  /* Prend toute la hauteur de l'écran */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  filter: grayscale(30%) contrast(60%) brightness(80%);
-  /* Effet de ruine */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d4af37;
+
 }
 
-.cabaret-image {
-  height: 80vh;
-  width: auto;
-  max-width: 800px;
-  border: 5px solid #d4af37;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  filter: sepia(50%);
-  z-index: -1;
-}
 
-.cabaret-text {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2em;
-  color: #d4af37;
-  text-decoration: underline;
-  background-color: rgba(0, 0, 0, 0.8);
-  /* Ajoute un fond semi-transparent pour le texte */
-  padding: 10px;
-  border-radius: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-20deg);
-  /* Positionne et fait pivoter le texte */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  /* Effet de texte dégradé */
-  z-index: 1;
-  /* Place le texte au-dessus de l'image */
-}
-
-.rain {
-  position: absolute;
-  left: 0;
+.img-loge {
   width: 100%;
   height: 100%;
-  z-index: 2;
+
 }
 
-.rain.back-row {
-  display: none;
-  z-index: 1;
-  bottom: 60px;
-  opacity: 0.5;
-}
-
-body.back-row-toggle .rain.back-row {
-  display: block;
-}
-
-.drop {
+.elements .element {
   position: absolute;
-  bottom: 100%;
-  width: 15px;
-  height: 120px;
-  pointer-events: none;
-  animation: drop 0.5s linear infinite;
-}
-
-@keyframes drop {
-  0% {
-    transform: translateY(0vh);
-  }
-
-  75% {
-    transform: translateY(90vh);
-  }
-
-  100% {
-    transform: translateY(90vh);
-  }
-}
-
-.stem {
-  width: 1px;
-  height: 60%;
-  margin-left: 7px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
-  animation: stem 0.5s linear infinite;
-}
-
-@keyframes stem {
-  0% {
-    opacity: 1;
-  }
-
-  65% {
-    opacity: 1;
-  }
-
-  75% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.splat {
-  width: 15px;
-  height: 10px;
-  border-top: 2px dotted rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  opacity: 1;
-  transform: scale(0);
-  animation: splat 0.5s linear infinite;
-  display: none;
-}
-
-body.splat-toggle .splat {
-  display: block;
-}
-
-@keyframes splat {
-  0% {
-    opacity: 1;
-    transform: scale(0);
-  }
-
-  80% {
-    opacity: 1;
-    transform: scale(0);
-  }
-
-  90% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-}
-
-.toggles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-}
-
-.toggle {
-  position: absolute;
-  left: 20px;
-  width: 50px;
-  height: 50px;
-  line-height: 51px;
-  box-sizing: border-box;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 10px;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
+  opacity: 0.7;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: opacity 0.3s, transform 0.3s, filter 0.3s;
 }
 
-.toggle:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+#boa {
+  top: 36%;
+  left: 82%;
+  width: 40px;
 }
 
-.toggle:active {
-  background-color: rgba(255, 255, 255, 0.3);
+#dress {
+  top: 46%;
+  left: 6%;
+  width: 84px;
 }
 
-.toggle.active {
-  background-color: rgba(255, 255, 255, 0.4);
+#eiffel {
+  top: 60%;
+  left: 68%;
+  width: 41px;
 }
 
-.splat-toggle {
-  top: 20px;
+#perruque {
+  top: 42%;
+  left: 79%;
+  width: 66px;
 }
 
-.back-row-toggle {
-  top: 90px;
-  line-height: 12px;
-  padding-top: 14px;
+/* Effet d'illumination au clic */
+.element.illuminated {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px #f5f5f5);
 }
 
-.single-toggle {
-  top: 160px;
+
+.audio-player {
+  margin-top: 20px;
+  padding: 10px;
+  border: 3px solid #d4af37;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 100%;
+  text-align: center;
+  background: #1a1a1a;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  font-family: 'Great Vibes', cursive;
+  color: #f5f5f5;
+  position: absolute;
 }
 
-body.single-toggle .drop {
-  display: none;
+.audio-player audio {
+  width: 100%;
 }
 
-body.single-toggle .drop:nth-child(10) {
+.audio-player::before {
+  content: "♪ Le Cabaret des Divas ♪";
   display: block;
+  font-size: 1.4em;
+  color: #d4af37;
+  margin-bottom: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.audio-player audio::-webkit-media-controls-panel {
+  background-color: #2c2c2c;
+}
+
+.audio-player audio::-webkit-media-controls-play-button,
+.audio-player audio::-webkit-media-controls-current-time-display,
+.audio-player audio::-webkit-media-controls-time-remaining-display {
+  color: #d4af37;
+}
+
+.audio-player audio::-webkit-media-controls-volume-slider,
+.audio-player audio::-webkit-media-controls-seek-back-button,
+.audio-player audio::-webkit-media-controls-seek-forward-button {
+  color: #d4af37;
 }

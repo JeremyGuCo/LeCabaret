@@ -11,33 +11,38 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- <div class="curtain-container">
+    <div class="curtain-container">
       <div class="curtain left"></div>
       <div class="curtain right"></div>
     </div>
     <div class="background-container"></div>
     <div class="container">
       <header>
-        <img
-          src="images/header.jpeg"
-          alt="Chanteuses Immortelles"
-          class="header-image"
-        />
         <h1>Bienvenue au Cabaret des Chanteuses Immortelles</h1>
         <p>
-          Ici, on joue, on chante, et on ne sait jamais ce qui peut arriver...
-          Défendez l'honneur des divas immortelles et laissez le mystère planer.
-          Votre House ? Ah ça, vous le saurez bien assez tôt...
+          Éclairez les quatre éléments légendaires, et une mélodie secrète vous
+          révèlera des indices précieux sur les divas...
         </p>
       </header>
+      <div class="loge">
+        <img class="img-loge" src="/images/loge.webp" alt="" />
+        <div class="elements">
+          <img src="/images/boa.png" class="element" id="boa" />
+          <img src="/images/dress.png" class="element" id="dress" />
+          <img src="/images/eiffel.png" class="element" id="eiffel" />
+          <img src="/images/perruque.png" class="element" id="perruque" />
+        </div>
+
+        <!-- Lecteur MP3 caché initialement -->
+        <div class="audio-player" id="audio-player" style="display: none">
+          <audio controls id="audio">
+            <source src="/audio/eternal_voice.mp3" type="audio/mp3" />
+            Votre navigateur ne supporte pas l'élément audio.
+          </audio>
+        </div>
+      </div>
     </div>
-    <button id="open-curtains">Ouvrez les rideaux</button> -->
-    <div class="rain front-row"></div>
-    <div class="rain back-row"></div>
-    <div class="cabaret-display">
-      <img src="/images/closed.webp" alt="Cabaret" class="cabaret-image" />
-      <p class="cabaret-text">En attente de repreneur</p>
-    </div>
+    <button id="open-curtains">♛</button>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/scripts.js"></script>
