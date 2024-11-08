@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: #2c2c2c;
   color: #f5f5f5;
   font-family: 'Georgia', serif;
@@ -75,12 +75,9 @@ body {
   padding: 0;
   background-image: url('/images/bg_ad.webp');
   background-repeat: repeat;
-  /* Répète l'image sur toute la page */
   background-size: 200px 200px;
   ;
-  /* Garde la taille originale de l'image */
   background-position: top left;
-  /* Commence la répétition en haut à gauche */
 }
 
 #open-curtains {
@@ -97,7 +94,6 @@ body {
   font-family: 'Great Vibes', cursive;
   cursor: pointer;
   z-index: 10000;
-  /* Assurez-vous que le bouton est au-dessus de tout */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: background-color 0.3s, transform 0.3s;
 }
@@ -156,4 +152,50 @@ body {
 
 .container.visible {
   opacity: 1;
+} */
+
+body {
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+}
+
+.cabaret-display {
+  text-align: center;
+  margin: 0; /* Supprime la marge */
+  height: 100vh; /* Prend toute la hauteur de l'écran */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  filter: grayscale(30%) contrast(60%) brightness(80%); /* Effet de ruine */
+}
+
+.cabaret-image {
+  height: 80vh;
+  width: auto;
+  max-width: 800px;
+  border: 5px solid #d4af37;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  filter: sepia(50%);
+  z-index: -1;
+}
+
+.cabaret-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2em;
+  color: #d4af37;
+  text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0.8); /* Ajoute un fond semi-transparent pour le texte */
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg); /* Positionne et fait pivoter le texte */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Effet de texte dégradé */
+  z-index: 1; /* Place le texte au-dessus de l'image */
 }
